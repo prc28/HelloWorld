@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page</title>
+</head>
+<body style="background-color:powderblue;">
+<h1 style="text-align:center;">This is Heading</h1>
+<p title="A paragraph">This is a paragraph</p>
+<p style="color:red; font-family:Times New Roman; font-size:300%;">This is another paragraph</p>
+<a href="https://www.google.ca/">Click here</a>
+<img title="Image of T shirt" src="pl.png" alt="Tshirt" width="100" height="80">
+</body>
+</html>
