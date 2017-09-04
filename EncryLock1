@@ -1,3 +1,12 @@
+#Checking if file with .ps ext is present on the directory or not
+#If not then the file is created(written), otherwise it is read into 
+#If the file content is NULL, then it is written, otherwise read
+#The writing of the file is converted into ascii encryption
+#On the second pass onwards the file is read to have content and then it is checked before closing
+#Checking of the password given by the user in real time vs password encrytion already present 
+#The checking process is through anagram method and the messages respective are printed on the screen
+
+
 import glob, os
 
 def check():
