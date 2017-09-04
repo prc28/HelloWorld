@@ -1,0 +1,51 @@
+import glob, os
+
+def check():
+        flag=0
+	ind=0
+	print("Enter your password to check and work on\n")
+        password1=raw_input()
+	pass_conv=conv(password1)
+        prevpass=file.readline()
+	if(len(pass_conv)==len(prevpass)):
+        	for char1 in prevpass:
+			if(char1!=pass_conv[ind]):
+				flag=1
+				break
+			ind=ind+1
+	else:
+		flag=1
+        if(flag==1):
+                print("Invalid password\n")
+	else:
+		print("Valid password\n")
+
+
+def conv(passw):
+	passw_conv=0
+	for ind in passw:
+		passw_conv=passw_conv*10+ord(ind)
+	return str(passw_conv)
+count=0
+true=1
+while true!=0:
+	filename="password.ps"
+	for file in glob.glob("*.ps"):
+    		count=count+1
+	if(count==0):
+		file=open(filename, "w")
+	else:
+		file=open(filename, "r")
+	if(os.stat(filename).st_size!=0):
+		file=open(filename, "r")
+               	check()
+ 		file.close()
+		true=0
+
+	else:
+		print("Enter the password\n")
+		password=raw_input()
+		file=open(filename, "w+")
+		file.write(conv(password))
+               	file.close()
+		true=0
