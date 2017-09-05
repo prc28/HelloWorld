@@ -1,0 +1,84 @@
+import glob, os, random, smtplib
+
+
+def conv(passw):
+        passw_conv=0
+        for ind in passw:
+                passw_conv=passw_conv*1331+ord(ind)
+        return str(passw_conv)
+
+
+def change():
+	flag=1
+	while flag!=0:
+		code=random.randint(10000,100000)
+		os.system("stty -echo")
+		server = smtplib.SMTP('mail.smtp2go.com', 2525)
+
+		server.login("ayyllmao", "nXo9mWdcD8iN")
+
+		msg = str(code)
+		email=raw_input("Enter your email: ")
+		server.sendmail("priyanshu18.pc@gmail.com", email, msg)
+		code1=raw_input("Enter the code for verification:")
+		if(int(code1)==code):
+			password2=raw_input("Enter the new password:")
+			os.system("stty echo")
+			file=open(filename,"w")
+			file.write(conv(password2))
+			file.close()
+			flag=0
+		else:
+			code1=raw_input("Re enter the code:")
+			flag=1
+
+
+def check():
+        flag=0
+	ind=0
+	os.system("stty -echo")
+	password1 = raw_input('Enter the Password for working:')
+	os.system("stty echo")
+	pass_conv=conv(password1)
+        prevpass=file.readline()
+	if(len(pass_conv)==len(prevpass)):
+        	for char1 in prevpass:
+			if(char1!=pass_conv[ind]):
+				flag=1
+				break
+			ind=ind+1
+	else:
+		flag=1
+        if(flag==1):
+                print("\nInvalid password, forgot password? Press y to change it!")
+		choice=raw_input()
+		if(choice=='y'):
+			change()
+	else:
+		print("Valid password")
+
+
+count=0
+true=1
+while true!=0:
+	filename="password.ps"
+	for file in glob.glob("*.ps"):
+    		count=count+1
+	if(count==0):
+		file=open(filename, "w")
+	else:
+		file=open(filename, "r")
+	if(os.stat(filename).st_size!=0):
+		file=open(filename, "r")
+               	check()
+ 		file.close()
+		true=0
+
+	else:
+		os.system("stty -echo")
+		password = raw_input('Enter new Password:')
+		os.system("stty echo")
+		file=open(filename, "w+")
+		file.write(conv(password))
+               	file.close()
+		true=0
