@@ -14,7 +14,7 @@ TWIML_INSTRUCTIONS_URL = \
 
 # replace the placeholder values with your Account SID and Auth Token
 # found on the Twilio Console: https://www.twilio.com/console
-client = TwilioRestClient("AC2bac814ea87d6ed31a1b0fd5a1e86874", "80a68e5f8c0b7ad2f11ce2f079a1b654")
+client = TwilioRestClient("", "")
 
 
 
